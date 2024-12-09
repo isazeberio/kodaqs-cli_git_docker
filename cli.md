@@ -86,20 +86,102 @@ Use `cd example` to move into the newly created directory.
 
 - `cp`: Copy a file or directory
 
+Use the `cp` command to copy a file or directory. The syntax is `cp source destination`. As usual, you can use both relative and absolute paths.
 
+In the example below, you are in the working directory `kodaqs-cli_git_docker/example` you just created. You can copy the `README.md` file from the parent directory to the current directory using the command
+
+```sh
+cp ../README.md README.md
+```
+
+To copy a directory and its contents, use the `-r` flag with the `cp` command. Now we will copy the `example` directory to a new directory called `example_copy` using the command
+
+```sh
+cd ..
+cp -r example example_copy
+```
+
+Use `ls example_copy` to verify that the directory was copied successfully.
 
 - `mv`: Move a file or directory
 
+Use the `mv` command to move a file or directory. The syntax is `mv source destination`. Note that the `mv` command can also be used to rename files and directories. Be cautious when using the `mv` command, as it will overwrite files if the destination already exists.
+
+In the example below, you can move the `example_copy` directory to a new directory called `example_moved` using the command
+
+```sh
+mv example_copy example_moved
+```
+
+You do not need to use the `-r` flag with the `mv` command to move directories.
+Use `ls example_moved` to verify that the directory was moved successfully.
+
 - `rm`: Remove a file or directory
 
+Use the `rm` command to remove a file or directory. Be cautious when using the `rm` command, as it will permanently delete files and directories without moving them to the trash.
+
+To remove a file, use the command `rm filename`. For example, to remove the `README.md` file, use the command
+
+```sh
+rm example_moved/README.md
+```
+
+Use `ls example_moved` to verify that the file was removed successfully.
+To remove a directory and its contents, use the `-r` flag with the `rm` command. For example, to remove the `example_moved` directory, use the command
+
+```sh
+rm -r example_moved
+```
+
+Use `ls` to verify that the directory was removed successfully.
 
 ### Viewing file contents
 
+- `cat`: View the contents of a file
 
+The `cat` command is used to view the contents of a file. The syntax is `cat filename`. For example, to view the contents of the `cli.md` file, use the command
 
-Viewing file contents
-Searching and filtering (e.g., grep, find)
-File permissions and ownership
+```sh
+cat cli.md
+```
+
+Besides `cat`, there are other commands that can be used to view file contents, such as `less`, `more`, and `head`.
+
+- `less`: View the contents of a file page by page
+
+`less` is faster for large files because it does not load the entire file into memory. The syntax is `less filename`. For example, to view the contents of the `cli.md` file page by page, use the command
+
+```sh
+less cli.md
+```
+
+Use the navigation keys `Up`, `Down`, `Page Up`, and `Page Down` to scroll through the file. Press `q` to exit `less`.
+
+- `head` and `tail`: View the first or last few lines of a file
+
+The `head` and `tail` commands are used to view the first or last few lines of a file. The syntax is `head filename` and `tail filename`, respectively. For example, to view the first or last few lines of the `cli.md` file, use the command
+
+```sh
+head cli.md
+tail cli.md
+```
+
+You can specify the number of lines to display by using the `-n` flag with the `head` and `tail` commands. For example, to view the first or last 10 lines of the `cli.md` file, use the command
+
+```sh
+head -n 10 cli.md
+tail -n 10 cli.md
+```
+
+### Searching for files and text
+
+## Flow control
+
+### Conditional statements
+
+### Loops
+
+Looping is a powerful feature of the CLI that allows you to automate repetitive tasks. There are several types of loops in the CLI, including `for`, `while`, and `until` loops.
 
 ## Running your own scripts
 
