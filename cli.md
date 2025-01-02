@@ -215,5 +215,7 @@ To run the script, you need to have Python 3 and the `matplotlib` library instal
 python3 character_count.py cli.md
 ```
 
+Check the output of the script in the terminal and the generated histogram in the `character_count_histogram.png` file.
+
 Note: Always check the documentation of the program you are running to ensure that you are using the correct options and arguments.
 ALWAYS be cautious when running programs from the CLI, especially if you are not familiar with the program or its options. Incorrect usage of programs can lead to data loss.
