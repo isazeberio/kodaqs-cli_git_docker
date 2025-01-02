@@ -2,8 +2,6 @@
 
 The command line interface (CLI) is a powerful tool for computational reproducibility. It allows you to interact with your computer in a way that is both efficient and reproducible. By using the CLI, you can automate tasks, create scripts, and run programs in a way that is consistent and repeatable.
 
-## Importance of CLI in the context of computational reproducibility
-
 Unlike graphical user interfaces (GUIs), which can be difficult to automate and reproduce, the CLI provides a simple and consistent way to interact with your computer. This makes it easier to create reproducible workflows and share them with others. By using the CLI, you can ensure that your work is transparent, reproducible, and easily accessible to others.
 
 However, the CLI can be intimidating for beginners, especially those who are not familiar with programming or the command line. In this guide, we will provide an introduction to the CLI and show you how to use it to improve the reproducibility of your work.
@@ -20,6 +18,14 @@ Before you can start using the CLI, you need to set up your environment. This in
 To install WSL, follow the instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install).
 
 ## Basic CLI commands
+
+The basic usage of the CLI involves typing commands and pressing `Enter` to execute them. Commands are usually followed by options and arguments that modify their behavior. Now we illustrate some of the most common commands you will use in the CLI.
+
+To get the running example we use throughout this session, clone the repository [kodaqs-cli_git_docker](https://github.com/yfiua/kodaqs-cli_git_docker) by running the following command in your terminal, and enter the directory `kodaqs-cli_git_docker`:
+
+```sh
+git clone https://github.com/yfiua/kodaqs-cli_git_docker
+```
 
 ### Navigating the file system
 
