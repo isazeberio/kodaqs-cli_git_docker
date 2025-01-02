@@ -45,7 +45,7 @@ In the example below, the output of `pwd` is `/home/yfiua/kodaqs-cli_git_docker`
 
 Typing `ls` and pressing `Enter` will show you a list of all the files and directories in the current directory. This is useful for getting an overview of what is in the directory.
 
-In the example below, the output of `ls` shows that there are three files `cli.md`, `LICENSE` and `README.md` in the current directory.
+In the example below, the output of `ls` shows that there are some files including `cli.md`, `LICENSE` and `README.md` in the current directory. Note the exact output may vary from the screenshot.
 
 Combine `ls` with the `-l`, `-s` and `-a` flags to get more detailed information about the files and directories, such as permissions, ownership, size, and modification date, and to show hidden files. In the example below, the output of
 
@@ -180,18 +180,40 @@ head -n 10 cli.md
 tail -n 10 cli.md
 ```
 
-## Flow control
-
-### Conditional statements
-
-### Loops
-
-Looping is a powerful feature of the CLI that allows you to automate repetitive tasks. There are several types of loops in the CLI, including `for`, `while`, and `until` loops.
-
 ## Creating your own scripts
 
-One of the key benefits of the CLI is the ability to create scripts that automate tasks and workflows. By writing scripts, you can ensure that your work is consistent, reproducible, and easily shareable with others.
+One of the key benefits of the CLI is the ability to create shell scripts that automate tasks and workflows. By writing scripts, you can ensure that your work is consistent, reproducible, and easily shareable with others.
 
-To create a script, you need to write a series of commands in a text file and save it with a `.sh` extension. You can then run the script from the CLI by typing `sh script.sh`.
+To create a script, you need to write a series of commands in a text file and save it with a `.sh` extension, for instance `script.sh`. You can then run the script from the CLI by typing `sh script.sh`, with possible arguments.
 
+Below is an example of a script that performs a simple text analysis task: it takes a file as input and counts the number of lines in a file, as well as the number of lines containing a specific "word" (case-insensitive, can be a substring).
 
+```sh
+#!/bin/sh
+
+echo "Number of lines in $1:" $(wc -l < $1)
+echo "Number of lines containing '$2' in $1:" $(grep -ci $2 $1)
+```
+
+Save the script to a file called `word-count.sh`. You can then run the script from the CLI by typing, for instance,
+
+```sh
+sh word-count.sh cli.md cli
+```
+
+## Running programs from the CLI
+
+In addition to creating and running your own shell scripts, you can also run programs from the CLI. This is useful for running programs that do not have a graphical user interface or for running programs in batch mode.
+
+To run a program from the CLI, you need to know the name of the program and any options or arguments that it requires. You can then type the name of the program followed by the options and arguments and press `Enter` to run the program.
+
+The Python script `character_count.py` is available in the `kodaqs-cli_git_docker` repository. It takes a file as input and counts the occurence of characters A-Z in the file and plots a histogram of the character counts.
+
+To run the script, you need to have Python 3 and the `matplotlib` library installed on your system. You can run the script from the CLI by typing, for instance,
+
+```sh
+python3 character_count.py cli.md
+```
+
+Note: Always check the documentation of the program you are running to ensure that you are using the correct options and arguments.
+ALWAYS be cautious when running programs from the CLI, especially if you are not familiar with the program or its options. Incorrect usage of programs can lead to data loss.
