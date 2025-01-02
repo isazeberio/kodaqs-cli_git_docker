@@ -1,23 +1,22 @@
-# CLI
+# Command line interface (CLI)
+
+The command line interface (CLI) is a powerful tool for computational reproducibility. It allows you to interact with your computer in a way that is both efficient and reproducible. By using the CLI, you can automate tasks, create scripts, and run programs in a way that is consistent and repeatable.
 
 ## Importance of CLI in the context of computational reproducibility
 
-The command line interface (CLI) is a powerful tool for computational reproducibility. It allows you to interact with your computer in a way that is both efficient and reproducible. By using the CLI, you can automate tasks, create scripts, and run programs in a way that is consistent and repeatable.
 Unlike graphical user interfaces (GUIs), which can be difficult to automate and reproduce, the CLI provides a simple and consistent way to interact with your computer. This makes it easier to create reproducible workflows and share them with others. By using the CLI, you can ensure that your work is transparent, reproducible, and easily accessible to others.
 
 However, the CLI can be intimidating for beginners, especially those who are not familiar with programming or the command line. In this guide, we will provide an introduction to the CLI and show you how to use it to improve the reproducibility of your work.
 
 ## Setting up your CLI environment
 
-Before you can start using the CLI, you need to set up your environment. This involves installing the necessary software and configuring your system to work with the CLI. Here are some steps you can take to set up your CLI environment:
+Before you can start using the CLI, you need to set up your environment. This involves installing the necessary software and configuring your system to work with the CLI. Depending on your operating system, you may need to install a terminal emulator.
 
-First, depending on your operating system, you may need to install a terminal emulator.
+* On macOS, you can use the built-in Terminal app, or even better, install [iTerm2](https://iterm2.com/), which is a more feature-rich terminal emulator.
 
-On macOS, you can use the built-in Terminal app, or even better, install [iTerm2](https://iterm2.com/), which is a more feature-rich terminal emulator.
+* On Linux, you can use the built-in terminal emulator for your distribution.
 
-On Linux, you can use the built-in terminal emulator for your distribution.
-
-On Windows however, although there exists the built-in Command Prompt or PowerShell, in order to have a consistent experience and make sure your work is reproducible cross-platform, you should install WSL (Windows Subsystem for Linux) and use a Linux distribution such as Ubuntu.
+* On Windows however, although there exists the built-in Command Prompt or PowerShell, in order to have a consistent experience and make sure your work is reproducible cross-platform, you should install WSL (Windows Subsystem for Linux) and use a Linux distribution such as Ubuntu.
 To install WSL, follow the instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install).
 
 ## Basic CLI commands
@@ -173,8 +172,6 @@ head -n 10 cli.md
 tail -n 10 cli.md
 ```
 
-### Searching for files and text
-
 ## Flow control
 
 ### Conditional statements
@@ -183,6 +180,10 @@ tail -n 10 cli.md
 
 Looping is a powerful feature of the CLI that allows you to automate repetitive tasks. There are several types of loops in the CLI, including `for`, `while`, and `until` loops.
 
-## Running your own scripts
+## Creating your own scripts
+
+One of the key benefits of the CLI is the ability to create scripts that automate tasks and workflows. By writing scripts, you can ensure that your work is consistent, reproducible, and easily shareable with others.
+
+To create a script, you need to write a series of commands in a text file and save it with a `.sh` extension. You can then run the script from the CLI by typing `sh script.sh`.
 
 
