@@ -21,10 +21,12 @@ To install WSL, follow the instructions [here](https://docs.microsoft.com/en-us/
 
 The basic usage of the CLI involves typing commands and pressing `Enter` to execute them. Commands are usually followed by options and arguments that modify their behavior. Now we illustrate some of the most common commands you will use in the CLI.
 
-To get the running example we use throughout this session, clone the repository [kodaqs-cli_git_docker](https://github.com/yfiua/kodaqs-cli_git_docker) by running the following command in your terminal, and enter the directory `kodaqs-cli_git_docker`:
+To get the running example we use throughout this session, clone the repository [kodaqs-cli_git_docker](https://github.com/yfiua/kodaqs-cli_git_docker) by running the following command in your terminal (make sure you have `git` installed. Alternatively, you can download the repository as a zip file from the GitHub page, extract it to a directory of your choice)
+, and enter the directory `kodaqs-cli_git_docker`:
 
 ```sh
 git clone https://github.com/yfiua/kodaqs-cli_git_docker
+cd kodaqs-cli_git_docker
 ```
 
 ### Navigating the file system
