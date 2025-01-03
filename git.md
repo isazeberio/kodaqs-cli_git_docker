@@ -83,13 +83,11 @@ It is safe to share the public key, but the private key should be kept secret.
 
 ### Adding the key to ssh-agent
 
-This is very OS specific. If you find anything not working here, check the official [GitHub documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-In a shell, check if the ssh-agent is running:
+To use the SSH key, you need to add it to the ssh-agent, which is a program that runs in the background and stores your keys in memory.
+To start the ssh-agent, you can use the following command:
 
 ```sh
-$ eval "$(ssh-agent -s)"
-Agent pid 14333
+eval "$(ssh-agent -s)"
 ```
 
 Add your key, substituting the correct name for your key.
@@ -106,23 +104,16 @@ Open the public key file you created in the previous step and copy its contents.
 cat ~/.ssh/id_ed25519.pub
 ```
 
-**Paste on GitHub**:
-- Click on your profile pic in upper right corner
+Then, go to the URL <https://github.com/settings/keys> and click on "New SSH key". Paste the public key into the "Key" field and give it a descriptive title. Click "Add SSH key".
+You can add multiple keys to your GitHub account and use them for different devices.
 
-- Go to *Settings > SSH and GPG keys*
+To test if the SSH key was added correctly, you can run the following command:
 
-- Click "New SSH key"
-
-- Paste your public key in the “Key” box. (Give it an informative title)
-
-- Click "Add SSH key"
-
-**Test**:
-You can use
 ```sh
 ssh -T git@github.com
 ```
-to test your connection to GitHub via SSH. If you see a message like "Hi username! You've successfully authenticated, but GitHub does not provide shell access.", everything is set up correctly.
+
+If you see a message like "Hi username! You've successfully authenticated, but GitHub does not provide shell access.", everything is set up correctly.
 
 ### Creating a repository
 
