@@ -67,7 +67,7 @@ To create an account, go to <https://github.com/signup> and follow the instructi
 ### Adding an SSH key
 
 For security reasons, it is recommended to use SSH keys to authenticate with GitHub.
-The official [GitHub documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) provides a detailed guide on how to set up an SSH key. Here we provide a quick run through using Linux.
+The official [GitHub documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) provides a detailed guide on how to set up an SSH key, which is OS specific. Here we provide a quick run through using Linux or WSL.
 
 To generate an SSH key, open a terminal and run the following command:
 
@@ -78,39 +78,33 @@ ssh-keygen -t ed25519 -C "DESCRIPTIVE-COMMENT"
 Accept the proposal to save the key in the default location by simply pressing Enter.
 You have the option to protect the key with a passphrase. This is optional (but considered best practice).
 
-The result is two files in the ~/.ssh directory: `id_ed25519` (private key) and `id_ed25519.pub` (public key). 
+The result is two files in the `~/.ssh` directory: `id_ed25519` (private key) and `id_ed25519.pub` (public key).
 It is safe to share the public key, but the private key should be kept secret.
 
-### Add key to ssh-agent
+### Adding the key to ssh-agent
 
 This is very OS specific. If you find anything not working here, check the official [GitHub documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 In a shell, check if the ssh-agent is running:
 
-```bash
+```sh
 $ eval "$(ssh-agent -s)"
 Agent pid 14333
 ```
 
 Add your key, substituting the correct name for your key.
 
-```bash
+```sh
 ssh-add ~/.ssh/id_ed25519
 ```
 
-:::
-
 ### Provide the public key to GitHub
 
-**Copy via shell:**
-Open ~/.ssh/id_ed25519.pub in an editor and copy the contents to your clipboard.
-Or do one of the following at the command line:
+Open the public key file you created in the previous step and copy its contents. You can do this by opening the file in a text editor or by running the following command:
 
-Mac OS: `pbcopy < ~/.ssh/id_ed25519.pub`
-Windows: `clip < ~/.ssh/id_ed25519.pub`
-Linux: `xclip -sel clip < ~/.ssh/id_ed25519.pub`
-
-(*Linux: if needed, install xclip via apt-get or yum.*)
+```sh
+cat ~/.ssh/id_ed25519.pub
+```
 
 **Paste on GitHub**:
 - Click on your profile pic in upper right corner
@@ -125,10 +119,10 @@ Linux: `xclip -sel clip < ~/.ssh/id_ed25519.pub`
 
 **Test**:
 You can use
-```bash
+```sh
 ssh -T git@github.com
 ```
- to test your connection to GitHub.  If you are unsure what is going on, check the [GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection). For more troubleshooting check [here](https://happygitwithr.com/ssh-keys.html).
+to test your connection to GitHub via SSH. If you see a message like "Hi username! You've successfully authenticated, but GitHub does not provide shell access.", everything is set up correctly.
 
 ### Creating a repository
 
@@ -153,3 +147,6 @@ Then, open a terminal and run:
 git clone <repository URL>
 ```
 
+
+## References
+[An introduction to Git(Hub)](https://github.com/schochastics/git_intro/tree/main) by David Schoch
