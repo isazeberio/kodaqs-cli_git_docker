@@ -75,10 +75,10 @@ To generate an SSH key, open a terminal and run the following command:
 ssh-keygen -t ed25519 -C "DESCRIPTIVE-COMMENT"
 ```
 
-Accept the proposal to save the key in the default location by simply pressing Enter.
+Accept the proposal to save the key in the default location by simply pressing `Enter`, or specify a different location and filename.
 You have the option to protect the key with a passphrase. This is optional (but considered best practice).
 
-The result is two files in the `~/.ssh` directory: `id_ed25519` (private key) and `id_ed25519.pub` (public key).
+By default, the result is two files in the `~/.ssh` directory: `id_ed25519` (private key) and `id_ed25519.pub` (public key).
 It is safe to share the public key, but the private key should be kept secret.
 
 ### Adding the key to ssh-agent
@@ -131,12 +131,30 @@ The repository will be copied to your account, and you will be able to make chan
 
 ### Cloning a repository
 
+The GitHub website provides a graphical interface to view repositories.
+However, to make changes to a repository, it is convienient to clone it to your local machine.
+
 To clone a repository, click on the green "Code" button. It is preferred to use the SSH URL if you have set up an SSH key. Otherwise, you can use the HTTPS URL (note that you will need to enter your GitHub username and [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) every time you push changes to the repository).
+Go to the directory where you want to clone the repository.
 Then, open a terminal and run:
 
 ```sh
 git clone <repository URL>
 ```
+
+In the example below, we clone the repository to a directory called `kodaqs-cli_git_docker` under the current directory `mntdisk1`.
+
+### Making local changes
+
+After cloning the repository, you can make changes to the files in the repository.
+Now we make some changes to the local repository:
+
+* Add a new file: `newfile.txt`
+
+* Edit an existing file: `README.md`
+
+* Delete a file: `rm file.txt`
+
 
 
 ## References
