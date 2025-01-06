@@ -149,13 +149,44 @@ In the example below, we clone the repository to a directory called `kodaqs-cli_
 After cloning the repository, you can make changes to the files in the repository.
 Now we make some changes to the local repository:
 
-* Add a new file: `newfile.txt`
+* Add a new file: `newfile.txt`. Content of the file can be anything you like.
 
-* Edit an existing file: `README.md`
+* Edit an existing file: `git.md`.
 
-* Delete a file: `rm file.txt`
+* Delete the file: `file_to_be_deleted`.
 
+Use command `git status` to see the changes you made.
 
+```sh
+git status
+```
+
+You can see that `git.md` is modified, and `file_to_be_deleted` is deleted. However, `newfile.txt` is untracked, meaning that Git is not tracking changes to this file. To add the new file to the repository, run:
+
+```sh
+git add newfile.txt
+```
+
+Commit the changes to the repository with a descriptive message:
+
+```sh
+git commit -m "Add newfile.txt, edit README.md, and delete file.txt"
+```
+
+### Pushing changes to GitHub
+
+After committing the changes, you can push them to GitHub.
+If you are collaborating with others, it is recommended to pull changes from the repository before pushing your changes to avoid conflicts:
+
+```sh
+git pull
+```
+
+If there are no conflicts, you can push your changes to GitHub:
+
+```sh
+git push
+```
 
 ## References
 [An introduction to Git(Hub)](https://github.com/schochastics/git_intro/tree/main) by David Schoch
