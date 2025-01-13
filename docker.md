@@ -136,7 +136,8 @@ Replace `<username>` with your Docker Hub username.
 After pushing the image to Docker Hub, it should appear in your personal Docker Hub profile <https://hub.docker.com/u/username>.
 You can share the image with others by providing them with the image name and tag.
 
-To use an image from Docker Hub, you can pull it using the `docker pull` command. Imagine that you are on another computer with Docker installed, and want to use the image that we pushed to Docker Hub, you can pull it using the following command:
+To use an image from Docker Hub, you can pull it using the `docker pull` command. Imagine that you are on another computer with Docker installed, but it does not necessarily have the Python environment set up.
+To use the image that we just pushed to Docker Hub, you can pull it using the following command:
 
 ```sh
 docker pull <username>/character-count

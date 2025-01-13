@@ -188,5 +188,10 @@ If there are no conflicts, you can push your changes to GitHub:
 git push
 ```
 
-## References
-[An introduction to Git(Hub)](https://github.com/schochastics/git_intro/tree/main) by David Schoch
+## References and resources
+
+We have covered the basics of Git and GitHub in this session. There are many more advanced features and best practices that you can learn to make the most out of Git and GitHub, for example branching, merging, rebasing, and pull requests. Here are some resources to help you learn more:
+
+* [An introduction to Git(Hub)](https://github.com/schochastics/git_intro/tree/main) by David Schoch
+* [Happy Git and GitHub for the useR](https://happygitwithr.com/) by Jenny Bryan
+* [GitHub official documentation](https://docs.github.com/en)
