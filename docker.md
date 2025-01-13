@@ -19,7 +19,7 @@ There are some shortcomings with this approach. Although we can run the Python s
 
 ## Creating a simple Docker image
 
-Now we will create a simple Docker image that runs the Python script that we used in the previous session. The Python script reads a file and counts the occurence of characters A-Z in the file, and then plots a histogram of the character counts.
+Now we will create a simple Docker image that runs the [Python script](characters-count.py) that we used in the previous session. The Python script reads a file and counts the occurence of characters A-Z in the file, and then plots a histogram of the character counts.
 
 Put the content below in a file named `Dockerfile` in the same directory as the Python script `character-count.py` and the requirements file `requirements.txt`.
 
@@ -69,21 +69,21 @@ In principle it is also possible to construct the Docker image in a way that it 
 This can be done by mounting volumes when running the container.
 However, for simplicity we will hardcode the file name in the `Dockerfile`.
 
-### Building the Docker image
+## Building the Docker image
 
 To build the Docker image, run the following command in the same directory as the `Dockerfile`:
 
-```bash
+```sh
 docker build -t character-count .
 ```
 
 This will build the Docker image with the tag `character-count`.
 
-### Running the Docker container
+## Running the Docker container
 
 To run the Docker container, run the following command:
 
-```bash
+```sh
 docker run character-count
 ```
 
@@ -91,14 +91,14 @@ This will run the Python script inside the Docker container, which will read the
 
 Run the following command to list the containers:
 
-```bash
+```sh
 docker ps -a
 ```
 
 The output of the script is displayed in the terminal. However, the plot file is saved in the container and not directly accessible from the host machine.
 To retrieve the plot file, you can use the `docker cp` command to copy the file from the container to the host machine.
 
-```bash
+```sh
 docker cp <container_id>:/app/character-count.png .
 ```
 
@@ -107,3 +107,34 @@ Replace `<container_id>` with the ID of our container.
 ## Docker Hub
 
 Docker Hub <https://hub.docker.com> is a cloud-based registry service that allows you to share container images with others. You can use Docker Hub to store and manage your images, as well as to discover and use images created by others.
+
+To push the Docker image to Docker Hub, you need to create an account on Docker Hub and log in using the `docker login` command in the terminal.
+
+```sh
+docker login
+```
+
+
+Then, you can tag the image with your Docker Hub username and push it to Docker Hub.
+
+```sh
+docker tag character-count <username>/character-count
+docker push <username>/character-count
+```
+
+Replace `<username>` with your Docker Hub username.
+After pushing the image to Docker Hub, it should appear in your personal Docker Hub profile <https://hub.docker.com/u/username>.
+You can share the image with others by providing them with the image name and tag.
+
+To use an image from Docker Hub, you can pull it using the `docker pull` command. Imagine that you are on another computer with Docker installed, and want to use the image that we pushed to Docker Hub, you can pull it using the following command:
+
+```sh
+docker pull <username>/character-count
+```
+
+Then, you can run the Docker container using the pulled image:
+
+```sh
+docker run <username>/character-count
+```
+
