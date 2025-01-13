@@ -15,12 +15,12 @@ A computational environment can be broadly broken down into hardware and softwar
 
 ## Software Layers
 
-Using Schoch et al. (2024)'s definition, a computational environment can be divided into 4 layers
+Using [Schoch et al. (2024)](https://doi.org/10.1140/epjds/s13688-024-00514-w)'s definition, a computational environment can be divided into 4 layers
 
 1. Operating System (e.g. Windows 10, Mac OS X 14.7.1, Ubuntu Linux 22.04)
-2. System components (e.g. `libxml2`)
+2. System components (e.g. *libxml2*)
 3. The exact version of the programming language (e.g. Python 3.10.0, R 3.6.3)
-4. What and which version of the software libraries (e.g. `dplyr` 0.8.5)
+4. What and which version of the software libraries (e.g. *dplyr* 0.8.5)
 
 As software might have some backward compatibility, it is likely that a slight variation in any of these 4 layers might not generate any issue. For example, a program written for Python 3.10.0 should run fine on Python 3.13.1, unless some deprecated features were used. But it is not a guarantee and software update can break existing code.
 
