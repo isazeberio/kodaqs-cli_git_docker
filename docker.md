@@ -10,12 +10,22 @@ There are some shortcomings with this approach. Although we can run the Python s
 
 ## Key concepts
 
-### Images
+### Images and containers
 
+- **Image**: An image is a read-only template that contains the application code, runtime, libraries, dependencies, and other files needed to run an application. Images are used to create containers.
 
+- **Container**: A container is a runtime instance of an image. It is a lightweight, standalone, and executable package that contains everything needed to run an application. Containers run in isolation from each other and from the host machine.
+
+A container is a realisation of an image. You can think of an image as a class and a container as an object in the object oriented programming paradigm.
+You can create multiple containers from the same image, and each container runs independently of the others.
+
+### Dockerfile
+
+A Dockerfile is a text file that contains a set of instructions for building a Docker image. The Dockerfile specifies the base image, working directory, dependencies, environment variables, and other configurations needed to create the image. You can imagine a Dockerfile as a recipe for building a Docker image.
 
 ## Installation
 
+To install Docker on your machine, follow the instructions for your operating system on the official Docker website: <https://docs.docker.com/get-docker/>.
 
 ## Creating a simple Docker image
 
