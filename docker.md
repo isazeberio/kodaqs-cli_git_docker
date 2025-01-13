@@ -5,7 +5,8 @@
 Docker is a platform that allows you to create and run applications inside containers. Containers are lightweight, standalone, and executable packages that contain everything needed to run an application, including the code, runtime, system tools, libraries, and settings.
 Using Docker can help you ensure that your research code runs consistently across different environments, or reproduce the results of other researchers by using their Docker images.
 
-For example, in the previous session [Command line interface](cli.md) we used the Python
+For example, in the previous session [Command line interface](cli.md) we used the Python to show case how to use the CLI to count the occurence of characters A-Z in the file and plot a histogram of the character counts.
+There are some shortcomings with this approach. Although we can run the Python script on our local machine, it may not run on another machine due to differences in the environment. For example, the script may not run on another machine or result in different output if the required Python packages are not installed, or if the Python version is different. Docker can help us solve this problem by creating a container that contains the Python script, the data, and all the required dependencies.
 
 ## Key concepts
 
@@ -16,11 +17,93 @@ For example, in the previous session [Command line interface](cli.md) we used th
 ## Installation
 
 
-## Creating a simple Docker container
+## Creating a simple Docker image
 
+Now we will create a simple Docker image that runs the Python script that we used in the previous session. The Python script reads a file and counts the occurence of characters A-Z in the file, and then plots a histogram of the character counts.
 
+Put the content below in a file named `Dockerfile` in the same directory as the Python script `character-count.py` and the requirements file `requirements.txt`.
 
+```dockerfile
+# kodaqs-docker-illustration
+# Version: 0.1.0
+# Description: Dockerfile for illustration purposes in the KODAQS course
+# Author: github.com/yfiua
+
+# Use the official Python base image
+FROM python:3.12-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Install Python dependencies
+COPY requirements.txt /app
+RUN pip install -r requirements.txt
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Ensure the script is executable
+RUN chmod +x /app/*.py
+
+# Run the script by default when the container starts
+CMD [ "sh", "-c", "./character-count.py cli.md" ]
+```
+
+The `Dockerfile` contains the following instructions:
+
+- `FROM python:3.12-slim`: Use the official Python base image with Python 3.12, which is a lightweight version of Python that includes only the essentials.
+
+- `WORKDIR /app`: Set the working directory in the container to `/app`.
+
+- `COPY requirements.txt /app`: Copy the `requirements.txt` file from the host machine to the `/app` directory in the container.
+
+- `RUN pip install -r requirements.txt`: Install the Python dependencies listed in the `requirements.txt` file.
+
+- `COPY . /app`: Copy the contents of the current directory on the host machine to the `/app` directory in the container, which includes the Python script `character-count.py` and the data file `cli.md`.
+
+- `RUN chmod +x /app/*.py`: Ensure that the Python script is executable.
+
+- `CMD [ "sh", "-c", "./character-count.py cli.md" ]`: Run the Python script by default when the container starts, passing the `cli.md` file as an argument.
+
+In principle it is also possible to construct the Docker image in a way that it can run the Python script with different files as input.
+This can be done by mounting volumes when running the container.
+However, for simplicity we will hardcode the file name in the `Dockerfile`.
+
+### Building the Docker image
+
+To build the Docker image, run the following command in the same directory as the `Dockerfile`:
+
+```bash
+docker build -t character-count .
+```
+
+This will build the Docker image with the tag `character-count`.
+
+### Running the Docker container
+
+To run the Docker container, run the following command:
+
+```bash
+docker run character-count
+```
+
+This will run the Python script inside the Docker container, which will read the `cli.md` file and count the occurence of characters A-Z in the file, and then plot a histogram of the character counts.
+
+Run the following command to list the containers:
+
+```bash
+docker ps -a
+```
+
+The output of the script is displayed in the terminal. However, the plot file is saved in the container and not directly accessible from the host machine.
+To retrieve the plot file, you can use the `docker cp` command to copy the file from the container to the host machine.
+
+```bash
+docker cp <container_id>:/app/character-count.png .
+```
+
+Replace `<container_id>` with the ID of our container.
 
 ## Docker Hub
 
-Docker Hub is a cloud-based registry service that allows you to share container images with others. You can use Docker Hub to store and manage your images, as well as to discover and pull images created by others.
+Docker Hub <https://hub.docker.com> is a cloud-based registry service that allows you to share container images with others. You can use Docker Hub to store and manage your images, as well as to discover and use images created by others.
