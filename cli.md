@@ -207,12 +207,12 @@ In addition to creating and running your own shell scripts, you can also run pro
 
 To run a program from the CLI, you need to know the name of the program and any options or arguments that it requires. You can then type the name of the program followed by the options and arguments and press `Enter` to run the program.
 
-The Python script `character_count.py` is available in the `kodaqs-cli_git_docker` repository. It takes a file as input and counts the occurence of characters A-Z in the file and plots a histogram of the character counts.
+The Python script `character-count.py` is available in the `kodaqs-cli_git_docker` repository. It takes a file as input and counts the occurence of characters A-Z in the file and plots a histogram of the character counts.
 
 To run the script, you need to have Python 3 and the `matplotlib` library installed on your system. You can run the script from the CLI by typing, for instance,
 
 ```sh
-python3 character_count.py cli.md
+python3 character-count.py cli.md
 ```
 
 Check the output of the script in the terminal and the generated histogram in the `character_count_histogram.png` file.

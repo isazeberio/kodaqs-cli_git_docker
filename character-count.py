@@ -51,7 +51,7 @@ def main():
     Main function to process input and generate character count histogram.
     """
     if len(sys.argv) != 2:
-        print("Usage: python character_count.py <file_path>")
+        print("Usage: python character-count.py <file_path>")
         sys.exit(1)
 
     file_path = sys.argv[1]
