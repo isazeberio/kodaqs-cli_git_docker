@@ -2,9 +2,11 @@
 
 ## Introduction
 
-Git is a distributed version control system that is used to track changes in source code during software development.
+Git is a widely used version control system that helps track changes in code, enabling collaboration and effective management of software projects. It ensures that researchers can maintain a history of their work, experiment with different approaches, and revert to previous versions if needed.
 
 ## Installation
+
+To use Git, you need to install it on your computer. Git is available for all major operating systems.
 
 ### Windows
 
