@@ -5,7 +5,7 @@
 Docker is a platform that allows you to create and run applications inside containers. Containers are lightweight, standalone, and executable packages that contain everything needed to run an application, including the code, runtime, system tools, libraries, and settings.
 Using Docker can help you ensure that your research code runs consistently across different environments, or reproduce the results of other researchers by using their Docker images.
 
-For example, in the previous session [Command line interface](cli.md) we used the Python to show case how to use the CLI to count the occurence of characters A-Z in the file and plot a histogram of the character counts.
+For example, in the previous session [Command line interface](cli.md) we used the Python to show case how to use the CLI to count the occurrence of characters A-Z in the file and plot a histogram of the character counts.
 There are some shortcomings with this approach. Although we can run the Python script on our local machine, it may not run on another machine due to differences in the environment. For example, the script may not run on another machine or result in different output if the required Python packages are not installed, or if the Python version is different. Docker can help us solve this problem by creating a container that contains the Python script, the data, and all the required dependencies.
 
 ## Key concepts
@@ -29,7 +29,7 @@ To install Docker on your machine, follow the instructions for your operating sy
 
 ## Creating a simple Docker image
 
-Now we will create a simple Docker image that runs the [Python script](characters-count.py) that we used in the previous session. The Python script reads a file and counts the occurence of characters A-Z in the file, and then plots a histogram of the character counts.
+Now we will create a simple Docker image that runs the [Python script](characters-count.py) that we used in the previous session. The Python script reads a file and counts the occurrence of characters A-Z in the file, and then plots a histogram of the character counts.
 
 Put the content below in a file named `Dockerfile` in the same directory as the Python script `character-count.py` and the requirements file `requirements.txt`.
 
@@ -77,7 +77,7 @@ The `Dockerfile` contains the following instructions:
 
 In principle it is also possible to construct the Docker image in a way that it can run the Python script with different files as input.
 This can be done by mounting volumes when running the container.
-However, for simplicity we will hardcode the file name in the `Dockerfile`.
+However, for simplicity we will hard-code the file name in the `Dockerfile`.
 
 ## Building the Docker image
 
@@ -91,7 +91,7 @@ This will build the Docker image with the tag `character-count`.
 
 ## Running the Docker container
 
-To run the Docker container, run the following command:
+To run the Docker container (strictly speaking, we run an instance of the Docker image as a container), run the following command:
 
 ```sh
 docker run character-count
