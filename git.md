@@ -153,7 +153,7 @@ Now we make some changes to the local repository:
 
 * Add a new file: `newfile.txt`. Content of the file can be anything you like.
 
-* Edit an existing file: `git.md`.
+* Edit an existing file: `README.md`.
 
 * Delete the file: `file_to_be_deleted`.
 
@@ -172,7 +172,7 @@ git add newfile.txt
 Commit the changes to the repository with a descriptive message:
 
 ```sh
-git commit -m "Add newfile.txt, edit README.md, and delete file.txt"
+git commit -a -m "Add newfile.txt, edit README.md, and delete file_to_be_deleted"
 ```
 
 ### Pushing changes to GitHub
