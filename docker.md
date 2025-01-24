@@ -109,7 +109,7 @@ The output of the script is displayed in the terminal. However, the plot file is
 To retrieve the plot file, you can use the `docker cp` command to copy the file from the container to the host machine.
 
 ```sh
-docker cp <container_id>:/app/character-count.png .
+docker cp <container_id>:/app/character_count_histogram.png .
 ```
 
 Replace `<container_id>` with the ID of our container.
