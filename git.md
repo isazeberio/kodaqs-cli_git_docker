@@ -2,7 +2,33 @@
 
 ## Introduction
 
-Git is a widely used version control system that helps track changes in code, enabling collaboration and effective management of software projects. It ensures that researchers can maintain a history of their work, experiment with different approaches, and revert to previous versions if needed.
+Git is a distributed version control system that helps track changes in code, enabling collaboration and effective management of software projects. It ensures that researchers can maintain a history of their work, experiment with different approaches, and revert to previous versions if needed.
+
+Here we explain the basic concepts of Git.
+
+### Repository
+
+A repository (repo) is the basic unit that Git operates. It contains all the files and directories of a project, and their entire history.
+
+* Local Repository: stored on your computer, can be synchronized (push / pull) to a remote repository.
+
+* Remote Repository: hosted on a server / platform such as GitHub or GitLab, which allows multiple people to collaborate on the project.
+
+### Commit
+
+A commit is a snapshot of a repository at a specific point in time.
+Each commit has a unique identifier and contains the changes (deletion / addition / update) made since the last commit.
+You can browse the history of commits and go back to anywhere you want.
+
+### Push and pull
+
+* When you want to make the remote repository in sync with your local one and share your changes to others, you ***push*** the commits in the local repository to the remote one.
+
+* The reverse action: when you want to sync your local repository with the remote repository, you ***pull*** commits from the remote repository to the local one.
+
+### Merge and conflict
+
+When pushing and pulling, commits are merged. When git cannot merge commits automatically, conflicts occur and must be resolved manually.
 
 ## Installation
 
